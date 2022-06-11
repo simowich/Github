@@ -5,6 +5,14 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "root",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#111111",
+          "background": "#ffff66",
+          "template": "\uF0E7"
+        },
+        {
           "type": "az",
           "style": "powerline",
           "powerline_symbol": "\uE0B0",

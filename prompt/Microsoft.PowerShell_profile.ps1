@@ -15,10 +15,12 @@ Import-Module -Name Terminal-Icons
 #install-module z -allowclobber
 #import-module z
 
-oh-my-posh init pwsh --config https://raw.githubusercontent.com/simowich/Github/main/prompt/.alloptions.omp.json | Invoke-Expression
+#~~~~~~ACTIVATE an OH MY POSH THEME for Windows Terminal~~~~~~
+#oh-my-posh init pwsh --config https://raw.githubusercontent.com/simowich/Github/main/prompt/.alloptions.omp.json | Invoke-Expression
 #oh-my-posh init pwsh --config C:\Users\simon\AppData\Local\Programs\oh-my-posh\themes\jandedobbeleer.omp.json | Invoke-Expression
 #oh-my-posh init pwsh --config C:\Users\simon\AppData\Local\Programs\oh-my-posh\themes\atomic.omp.json | Invoke-Expression
 #oh-my-posh init pwsh --config C:\Users\simon\OneDrive\Computing\Github\prompt\ohmyposhv3-v2.json | Invoke-Expression
+oh-my-posh init pwsh --config https://raw.githubusercontent.com/simowich/Github/main/prompt/.simpletheme.omp.json | Invoke-Expression
 
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
@@ -699,3 +701,16 @@ Set-PSReadLineKeyHandler -Key Ctrl+Shift+t `
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("dotnet test")
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
+
+#Functions
+
+#GITHUB - Run function with upload message
+function lazygit {
+    param(
+      [Parameter(ValueFromRemainingArguments = $true)]
+      [String[]] $message
+    )
+    git add .
+    git commit -a -m "$message"
+    git push
+  }
